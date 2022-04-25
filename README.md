@@ -13,3 +13,11 @@ artyom = Person.new('Артём', 17)
 p Blejzer(artyom) #=> binary...
 ```
 
+TO-DO:
+
+- [x] Integer
+- [x] Array
+- [ ] Optimized array
+- [ ] String
+- [ ] Struct
+- [ ] Class(Object)
