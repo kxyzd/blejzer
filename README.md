@@ -1,6 +1,6 @@
 # blejzer
 
-Gem for simple and compact serialization of Ruby objects into binary format. A toy implementation, so you may find many limitations.
+Gem for simple and compact serialization of Ruby objects into binary format. This is a toy implementation, so you may find many limitations. In simple examples you won't need to describe the types when serializing, but with complex nested types you will all have to describe the types using abstract eDSL. 
 
 Example of structure serialization:
 ```ruby
