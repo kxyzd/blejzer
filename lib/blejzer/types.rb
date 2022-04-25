@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_relative 'number'
+require_relative 'specifictypes/number'
 
 module Blejzer
   Type = Struct.new(:code, :impl)

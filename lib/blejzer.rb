@@ -2,10 +2,10 @@
 
 require_relative 'blejzer/version'
 
-require_relative './blejzer/types'
+require_relative 'blejzer/types'
 
-require_relative './blejzer/dumper'
-require_relative './blejzer/number'
+require_relative 'blejzer/dumper'
+require_relative 'blejzer/specifictypes/number'
 
 # Module for object serialization.
 module Blejzer
