@@ -42,9 +42,12 @@ module Blejzer
       return xs if bin.nil? or bin.empty?
 
       code, = Dumper.header(1)[bin]
+      # TODO: Check for incorrect data and blah, blah, blah.
       Blejzer::T.find_by_code(code).impl.load(bin) => [value, bin]
 
       parse_array([array << value, bin])
+    rescue StandardError
+      raise Blejzer::Error, 'Incorrect binary format!'
     end
   end
 end
