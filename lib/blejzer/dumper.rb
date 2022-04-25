@@ -6,8 +6,11 @@ module Blejzer
       def Blejzer(obj)
         case obj
         when String
-          code, bin = header(1)[obj]
-          T.find_by_code(code).impl.load(bin)
+          code, = header(1)[obj]
+          T.find_by_code(code)
+           .impl
+           .load(obj)
+           .first
         else
           what_is_the_specific_type(obj)
             .new(obj)
@@ -25,8 +28,10 @@ module Blejzer
         case object
         when Integer
           SpecificInteger
+        when Array
+          UOArray
         else
-          raise 'unsupport'
+          raise "unsupport(#{object.bytes.inspect})"
         end
       end
 

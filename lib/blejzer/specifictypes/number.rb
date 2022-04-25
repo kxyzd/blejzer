@@ -4,11 +4,11 @@ module Blejzer
   class SpecificInteger
     def initialize(number)
       @value = number
-      _, @type, @directive = what_is_the_type
+      _, @type, @directive, * = what_is_the_type
     end
 
     def dump
-      header + [@value].pack(@directive)
+      @bin ||= header + [@value].pack(@directive)
     end
 
     def self.load(bin)
@@ -17,9 +17,18 @@ module Blejzer
       # TODO: Add more checkers.
       raise 'uncorrected code in SpecificInteger' unless correct_code?(code)
 
-      _, _, directive = find_specific_type_by_code(code)
+      _, _, directive, * = find_specific_type_by_code(code)
 
-      Dumper.unpack(bin, directive)
+      *, sizetype = find_specific_type_by_code(code)
+
+      [
+        Dumper.unpack(bin, directive),
+        bin[sizetype..]
+      ]
+    end
+
+    def size
+      dump.size
     end
 
     private
