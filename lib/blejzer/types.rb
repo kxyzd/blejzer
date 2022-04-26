@@ -3,6 +3,7 @@
 require_relative 'specifictypes/number'
 require_relative 'specifictypes/uoarr'
 require_relative 'specifictypes/struct'
+require_relative 'specifictypes/string'
 
 module Blejzer
   Type = Struct.new(:code, :impl)
@@ -11,7 +12,9 @@ module Blejzer
     Byte  = Type.new(10, SpecificInteger),
     Int   = Type.new(30, SpecificInteger),
 
-    UOArr = Type.new(50, UOArray)
+    UOArr = Type.new(50, UOArray),
+
+    CStr  = Type.new(70, SpecificString)
   ]
 
   TNumber = [

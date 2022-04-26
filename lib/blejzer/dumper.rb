@@ -32,6 +32,8 @@ module Blejzer
           UOArray
         when ->(obj) { obj.respond_to? :members }
           SpecificStruct
+        when String
+          SpecificString
         else
           raise "unsupport(#{object.bytes.inspect})"
         end

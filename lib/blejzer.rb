@@ -8,6 +8,7 @@ require_relative 'blejzer/dumper'
 require_relative 'blejzer/specifictypes/number'
 require_relative 'blejzer/specifictypes/uoarr'
 require_relative 'blejzer/specifictypes/struct'
+require_relative 'blejzer/specifictypes/string'
 
 # Module for object serialization.
 module Blejzer

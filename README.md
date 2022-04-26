@@ -18,6 +18,6 @@ TO-DO:
 - [x] Integer
 - [x] Array
 - [ ] Optimized array
-- [ ] String
+- [x] CString
 - [x] Struct
 - [ ] Class(Object)
