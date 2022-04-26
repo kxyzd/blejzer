@@ -2,6 +2,7 @@
 
 require_relative 'specifictypes/number'
 require_relative 'specifictypes/uoarr'
+require_relative 'specifictypes/struct'
 
 module Blejzer
   Type = Struct.new(:code, :impl)

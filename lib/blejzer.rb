@@ -7,6 +7,7 @@ require_relative 'blejzer/types'
 require_relative 'blejzer/dumper'
 require_relative 'blejzer/specifictypes/number'
 require_relative 'blejzer/specifictypes/uoarr'
+require_relative 'blejzer/specifictypes/struct'
 
 # Module for object serialization.
 module Blejzer

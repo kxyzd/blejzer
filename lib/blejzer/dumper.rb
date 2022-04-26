@@ -30,6 +30,8 @@ module Blejzer
           SpecificInteger
         when Array
           UOArray
+        when ->(obj) { obj.respond_to? :members }
+          SpecificStruct
         else
           raise "unsupport(#{object.bytes.inspect})"
         end
