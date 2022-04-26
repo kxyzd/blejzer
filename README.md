@@ -40,4 +40,5 @@ TO-DO:
 - [ ] Optimized array
 - [x] CString
 - [x] Struct
+- [ ] Hash???
 - [ ] Class(Object)
