@@ -20,6 +20,8 @@ module Blejzer
             type.new(*val)
           end
         end)
+      rescue StandardError
+        raise Blejzer::Error, 'Failed to deserialize by pattern.'
       end
     end
 
@@ -35,6 +37,8 @@ module Blejzer
             type.new(*val)
           end
         end)
+      rescue StandardError
+        raise Blejzer::Error, 'Failed to deserialize by pattern.'
       end
     end
   end
