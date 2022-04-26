@@ -15,7 +15,11 @@ module Blejzer
     def self.load(bin)
       _, bin = Dumper.header(1)[bin]
       [
-        string = bin.bytes.take_while { _1 != 0 }.pack('C*'),
+        string = bin
+                 .bytes
+                 .take_while { _1 != 0 }
+                 .pack('C*')
+                 .force_encoding('UTF-8'),
         bin[string.size.succ..] # `.succ` because `\0`.
       ]
     end
