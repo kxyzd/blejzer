@@ -19,5 +19,5 @@ TO-DO:
 - [x] Array
 - [ ] Optimized array
 - [ ] String
-- [ ] Struct
+- [x] Struct
 - [ ] Class(Object)
