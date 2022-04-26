@@ -26,6 +26,12 @@ bin = Blejzer(square)
 
 p Square.typed(Point, Blejzer::Auto)[bin]
 ```
+Compared to Marshal:
+```ruby
+# TODO: rewrite after optimization.
+p Blejzer(square).size #=> 16
+p Marshal.dump(square).size #=> 46
+```
 
 TO-DO:
 
