@@ -2,6 +2,7 @@
 
 module Blejzer
   Any = :any
+  Auto = Any
 
   refine Class do
     def from(bin)
