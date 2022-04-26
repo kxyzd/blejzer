@@ -14,3 +14,7 @@ module Blejzer
   class Error < StandardError; end
   # Your code goes here...
 end
+
+def Blejzer(object)
+  Blejzer::Dumper.Blejzer(object)
+end
