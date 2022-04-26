@@ -13,6 +13,20 @@ artyom = Person.new('Артём', 17)
 p Blejzer(artyom) #=> binary...
 ```
 
+A more complicated example:
+```ruby
+require 'blejzer'
+
+Point = Struct.new(:x, :y)
+Square = Struct.new(:point, :size)
+
+square = Square.new(Point.new(2, -7), 6)
+
+bin = Blejzer(square)
+
+p Square.typed(Point, Blejzer::Auto)[bin]
+```
+
 TO-DO:
 
 - [x] Integer
