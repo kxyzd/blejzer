@@ -4,46 +4,6 @@ module Blejzer
   Any = :any
   Auto = Any
 
-  refine Class do
-    def from(bin)
-      new(*Blejzer::Dumper.Blejzer(bin))
-    end
-
-    def type(*types)
-      lambda do |value|
-        new(*value.zip(types).map do |(val, type)|
-          case type
-          in Any
-            val
-          in Proc
-            type[val]
-          in Class
-            type.new(*val)
-          end
-        end)
-      rescue StandardError
-        raise Blejzer::Error, 'Failed to deserialize by pattern.'
-      end
-    end
-
-    def typed(*types)
-      lambda do |bin|
-        new(*Blejzer::Dumper.Blejzer(bin).zip(types).map do |(val, type)|
-          case type
-          in Any
-            val
-          in Proc
-            type[val]
-          in Class
-            type.new(*val)
-          end
-        end)
-      rescue StandardError
-        raise Blejzer::Error, 'Failed to deserialize by pattern.'
-      end
-    end
-  end
-
   class SpecificStruct
     def initialize(object)
       members = object.members
@@ -61,3 +21,43 @@ module Blejzer
     end
   end
 end
+
+class Class
+    def from(bin)
+      new(*Blejzer::Dumper.Blejzer(bin))
+    end
+
+    def type(*types)
+      lambda do |value|
+        new(*value.zip(types).map do |(val, type)|
+          case type
+          when Blejzer::Any
+            val
+          when Proc
+            type[val]
+          when Class
+            type.new(*val)
+          end
+        end)
+      rescue StandardError
+        raise Blejzer::Error, 'Failed to deserialize by pattern.'
+      end
+    end
+
+    def typed(*types)
+      lambda do |bin|
+        new(*Blejzer::Dumper.Blejzer(bin).zip(types).map do |(val, type)|
+          case type
+          when Blejzer::Any
+            val
+          when Proc
+            type[val]
+          when Class
+            type.new(*val)
+          end
+        end)
+      rescue StandardError
+        raise Blejzer::Error, 'Failed to deserialize by pattern.'
+      end
+    end
+  end

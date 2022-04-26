@@ -6,8 +6,6 @@ Example of structure serialization:
 ```ruby
 require 'blejzer'
 
-using Blejzer
-
 Person = Struct.new(:name, :age)
 
 artyom = Person.new('Артём', 17)
