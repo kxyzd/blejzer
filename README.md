@@ -29,7 +29,7 @@ p Square.typed(Point, Blejzer::Auto)[bin]
 По сравнению с [Marshal](https://rubyapi.org/3.1/o/marshal):
 ```ruby
 # TODO: rewrite after optimization.
-p Blejzer(square).size #=> 16
+p Blejzer(square).size #=> 14
 p Marshal.dump(square).size #=> 46
 ```
 
