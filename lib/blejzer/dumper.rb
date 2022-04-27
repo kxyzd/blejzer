@@ -35,7 +35,7 @@ module Blejzer
         when String
           SpecificString
         else
-          raise "unsupport(#{object.bytes.inspect})"
+          raise "unsupport(#{object.inspect})"
         end
       end
 

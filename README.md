@@ -41,4 +41,4 @@ TO-DO:
 - [x] CString
 - [x] Struct
 - [ ] Hash???
-- [ ] Class(Object)
+- [x] Class(Object)(Maybe)
