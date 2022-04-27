@@ -5,19 +5,23 @@ require_relative 'specifictypes/uoarr'
 require_relative 'specifictypes/struct'
 require_relative 'specifictypes/string'
 require_relative 'specifictypes/null'
+require_relative 'specifictypes/bool'
 
 module Blejzer
   Type = Struct.new(:code, :impl)
 
   T = [
-    Byte  = Type.new(10, SpecificInteger),
-    Int   = Type.new(30, SpecificInteger),
+    Byte   = Type.new(10, SpecificInteger),
+    Int    = Type.new(30, SpecificInteger),
 
-    UOArr = Type.new(50, UOArray),
+    UOArr  = Type.new(50, UOArray),
 
-    CStr  = Type.new(70, SpecificString),
+    CStr   = Type.new(70, SpecificString),
 
-    Null  = Type.new(80, SpecificNil)
+    Null   = Type.new(80, SpecificNil),
+
+    BTrue  = Type.new(81, SpecificBool),
+    BFalse = Type.new(82, SpecificBool)
   ]
 
   TNumber = [

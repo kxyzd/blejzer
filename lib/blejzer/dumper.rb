@@ -36,6 +36,8 @@ module Blejzer
           SpecificString
         when NilClass
           SpecificNil
+        when TrueClass, FalseClass
+          SpecificBool
         else
           raise "unsupport(#{object.inspect})"
         end

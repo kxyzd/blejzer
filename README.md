@@ -36,9 +36,12 @@ p Marshal.dump(square).size #=> 46
 TO-DO:
 
 - [x] Integer
+- [x] Nil 
+- [x] Bool 
 - [x] Array
 - [ ] Optimized array
 - [x] CString
 - [x] Struct
 - [ ] Hash???
 - [x] Class(Object)(Maybe)
+- [ ] Custom specific types by user???
