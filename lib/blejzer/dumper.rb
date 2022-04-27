@@ -34,6 +34,8 @@ module Blejzer
           SpecificStruct
         when String
           SpecificString
+        when NilClass
+          SpecificNil
         else
           raise "unsupport(#{object.inspect})"
         end
