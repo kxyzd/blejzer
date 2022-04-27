@@ -36,6 +36,7 @@ p Marshal.dump(square).size #=> 46
 TO-DO:
 
 - [x] Integer
+- [ ] Float
 - [x] Nil 
 - [x] Bool 
 - [x] Array
