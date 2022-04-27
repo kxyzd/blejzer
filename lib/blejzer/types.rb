@@ -8,8 +8,23 @@ require_relative 'specifictypes/null'
 require_relative 'specifictypes/bool'
 
 module Blejzer
+  # Класс для представления метаинформации
+  # о типе: его коде и классе, который его реализует.
+  # @attr code [Integer] Код байта-типа.
+  # @attr impl [SpecificType] Класс, который реализует данный тип.
   Type = Struct.new(:code, :impl)
 
+  # Общий интерфейс для всех специальных типов.
+  class SpecificType
+    # @return [String]
+    def dump; end
+
+    # @param bin [String]
+    # @return [[Object, String]]
+    def self.load(bin); end
+  end
+
+  # Список всех поддерживаемых типов.
   T = [
     UByte  = Type.new(1, SpecificInteger),
     UShort = Type.new(2, SpecificInteger),
@@ -31,6 +46,7 @@ module Blejzer
     BFalse = Type.new(82, SpecificBool)
   ]
 
+  # Список описания критерий типов для чисел.
   TNumber = [
     [0..255, UByte, 'C', 1],
     [0..65_535, UShort, 'S', 2],
@@ -46,7 +62,11 @@ module Blejzer
     ]
   ]
 
+  # @param code [Integer]
+  # @return [Type]
   def T.find_by_code(code)
     find { _1.code == code }
   end
+
+  T.freeze
 end
