@@ -1,8 +1,8 @@
 # blejzer
 
-Gem for simple and compact serialization of Ruby objects into binary format. This is a toy implementation, so you may find many limitations. In simple examples you won't need to describe the types when serializing, but with complex nested types you will all have to describe the types using abstract eDSL. 
+Gem для простой и компактной сериализации объектов Ruby в двоичный формат. Это игрушечная реализация, поэтому вы можете обнаружить множество ограничений. В простых примерах вам не нужно будет описывать типы при сериализации, но со сложными вложенными типами вам всё же придется это сделать.
 
-Example of structure serialization:
+Пример сериализации структуры:
 ```ruby
 require 'blejzer'
 
@@ -13,7 +13,7 @@ artyom = Person.new('Артём', 17)
 p Blejzer(artyom) #=> binary...
 ```
 
-A more complicated example:
+Более сложный пример:
 ```ruby
 require 'blejzer'
 
@@ -26,7 +26,7 @@ bin = Blejzer(square)
 
 p Square.typed(Point, Blejzer::Auto)[bin]
 ```
-Compared to Marshal:
+По сравнению с [Marshal](https://rubyapi.org/3.1/o/marshal):
 ```ruby
 # TODO: rewrite after optimization.
 p Blejzer(square).size #=> 16
@@ -34,6 +34,7 @@ p Marshal.dump(square).size #=> 46
 ```
 
 TO-DO:
+- [ ] Добавить тесты.
 
 - [x] Integer
 - [ ] Float
