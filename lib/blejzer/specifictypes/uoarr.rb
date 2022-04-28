@@ -25,18 +25,16 @@ module Blejzer
 
     private
 
-    def header(budy)
-      # TODO: Optimize pointer to array size. (You can
-      # make it find the optimal specific type for it).
+    def header(body)
       Dumper.code(Blejzer::UOArr) +
-        [budy.size].pack('L')
+        Blejzer(body.size)
     end
 
     def self.get_header(bin)
       # TODO: Rewrite more pretty.
       code, bin = Dumper.header(1)[bin]
-      size_array, * = bin.unpack('L')
-      [code, size_array, bin[4..]]
+      size_array, bin = SpecificInteger.load(bin)
+      [code, size_array, bin]
     end
 
     def self.parse_array(xs)
