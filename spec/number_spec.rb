@@ -9,3 +9,14 @@ describe Blejzer::SpecificInteger do
     end
   end
 end
+
+describe Blejzer::SpecificBigNumber do
+  it 'serialization of bignumber' do
+    source_number =
+      43_563_221_839_684_273_864_356_734_638_749_743_934_563_482_973_643
+    blejzered_number = Blejzer source_number
+
+    expect(Blejzer(blejzered_number))
+      .to eq(source_number)
+  end
+end

@@ -41,6 +41,7 @@ TO-DO:
 - [ ] Написать "how to use"
 - [ ] Разобраться с созданием гема
 - [x] Integer
+- [x] BigNumber
 - [ ] Float
 - [x] Nil 
 - [x] Bool 

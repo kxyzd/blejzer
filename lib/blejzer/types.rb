@@ -6,6 +6,7 @@ require_relative 'specifictypes/struct'
 require_relative 'specifictypes/string'
 require_relative 'specifictypes/null'
 require_relative 'specifictypes/bool'
+require_relative 'specifictypes/bignumber'
 
 module Blejzer
   # Класс для представления метаинформации
@@ -36,6 +37,8 @@ module Blejzer
     Int    = Type.new(7, SpecificInteger),
     Long   = Type.new(8, SpecificInteger),
 
+    BigNumber = Type.new(10, SpecificBigNumber),
+
     UOArr  = Type.new(50, UOArray),
 
     CStr   = Type.new(70, SpecificString),
@@ -59,7 +62,8 @@ module Blejzer
     [
       -9_223_372_036_854_775_808..9_223_372_036_854_775_807,
       Long, 'q', 8
-    ]
+    ],
+    [SpecificBigNumber::RANGE, BigNumber]
   ]
 
   # @param code [Integer]

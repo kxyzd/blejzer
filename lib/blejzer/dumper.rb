@@ -40,7 +40,11 @@ module Blejzer
         # TODO: Переписать более декларативно. Много строк!
         case object
         when Integer
-          SpecificInteger
+          if SpecificBigNumber::RANGE.include? object
+            SpecificBigNumber
+          else
+            SpecificInteger
+          end
         when Array
           UOArray
         when ->(obj) { obj.respond_to? :members }
