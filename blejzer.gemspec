@@ -13,7 +13,10 @@ Gem::Specification.new do |s|
   s.authors     = ['kxyzd']
   s.email       = 'kxyzd@vk.com'
   s.files       = FileList['lib/**/*.rb']
+  s.require_paths = ['lib']
+  s.required_ruby_version = '>= 2.7.0'
   s.homepage    = 'https://github.com/kxyzd/blejzer'
   s.metadata    = { 'source_code_uri' => 'https://github.com/kxyzd/blejzer',
                     'rubygems_mfa_required' => 'true' }
+  s.add_development_dependency 'rspec', '~> 3.11'
 end
