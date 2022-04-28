@@ -2,6 +2,7 @@
 
 module Blejzer
   Any = :any
+  Self = :self
   Auto = Any
 
   class SpecificStruct

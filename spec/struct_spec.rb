@@ -20,4 +20,55 @@ describe Blejzer::SpecificStruct do
       )[blejzered_rect]
     ).to eq(source_rect)
   end
+
+  it 'serialization of user object' do
+    class Node
+      members :value, :left, :right
+
+      def initialize(value, left = nil, right = nil)
+        @value = value
+        @left = left
+        @right = right
+      end
+
+      def ==(other)
+        if other
+          [
+            other.value,
+            @left == other.left,
+            @right == other.right
+          ].any? true
+        else
+          true
+        end
+      end
+    end
+
+    source_node = Node.new(
+      54,
+      Node.new(
+        0,
+        nil.to_s,
+        Node.new(3)
+      ),
+      Node.new(111)
+    )
+
+    NodeType = lambda do |value|
+      return value unless value.is_a? Array
+
+      value => [value, left, right]
+      Node.new(
+        value,
+        NodeType.call(left),
+        NodeType.call(right)
+      )
+    end
+
+    blejzered_node = Blejzer source_node
+
+    expect(
+      NodeType[Blejzer blejzered_node]
+    ).to eq(source_node)
+  end
 end
