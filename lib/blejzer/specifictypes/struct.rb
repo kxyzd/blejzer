@@ -64,8 +64,14 @@ class Class
 end
 
 class Module
+  # A modifier specifying which fields should be serialized.
   def members(*names)
-    attr_reader(*names)
+    for name in names
+      next if instance_methods(false).include? name
+
+      raise Blejzer::Error,
+            "Instance variable `#{name}` must be readable!"
+    end
 
     define_method(:members) { names }
   end

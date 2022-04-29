@@ -23,6 +23,8 @@ describe Blejzer::SpecificStruct do
 
   it 'serialization of user object' do
     class Node
+      attr_reader :value, :left, :right
+
       members :value, :left, :right
 
       def initialize(value, left = nil, right = nil)
