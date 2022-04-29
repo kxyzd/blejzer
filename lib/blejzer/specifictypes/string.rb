@@ -24,6 +24,10 @@ module Blejzer
       ]
     end
 
+    def metatype
+      CStr
+    end
+
     private
 
     def header

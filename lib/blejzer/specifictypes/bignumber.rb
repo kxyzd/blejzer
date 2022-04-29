@@ -23,6 +23,10 @@ module Blejzer
       [num_str.to_i, bin]
     end
 
+    def metatype
+      BigNumber
+    end
+
     private
 
     def header

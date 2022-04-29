@@ -23,6 +23,10 @@ module Blejzer
       [array, bin[size_array..]]
     end
 
+    def metatype
+      UOArr
+    end
+
     private
 
     def header(body)

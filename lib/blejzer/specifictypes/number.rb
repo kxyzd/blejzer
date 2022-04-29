@@ -31,6 +31,10 @@ module Blejzer
       dump.size
     end
 
+    def metatype
+      @type
+    end
+
     private
 
     def header

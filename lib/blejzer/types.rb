@@ -7,6 +7,8 @@ require_relative 'specifictypes/string'
 require_relative 'specifictypes/null'
 require_relative 'specifictypes/bool'
 require_relative 'specifictypes/bignumber'
+require_relative 'specifictypes/commonarray'
+require_relative 'specifictypes/oarray'
 
 module Blejzer
   # Класс для представления метаинформации
@@ -39,7 +41,8 @@ module Blejzer
 
     BigNumber = Type.new(10, SpecificBigNumber),
 
-    UOArr  = Type.new(50, UOArray),
+    UOArr = Type.new(50, UOArray),
+    OArr = Type.new(51, OptimizedArray),
 
     CStr   = Type.new(70, SpecificString),
 

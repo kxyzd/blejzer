@@ -12,7 +12,7 @@ module Blejzer
       def Blejzer(obj)
         case obj
         when String
-          code, = header(1)[obj]
+          code, bin = header(1)[obj]
           T.find_by_code(code)
            .impl
            .load(obj)
@@ -46,7 +46,7 @@ module Blejzer
             SpecificInteger
           end
         when Array
-          UOArray
+          CommonArray
         when ->(obj) { obj.respond_to? :members }
           SpecificStruct
         when String

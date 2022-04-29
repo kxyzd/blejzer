@@ -18,5 +18,9 @@ module Blejzer
         bin
       ]
     end
+
+    def metatype
+      @bool ? BTrue : BFalse
+    end
   end
 end

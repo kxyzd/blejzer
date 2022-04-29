@@ -32,6 +32,13 @@ p Square.typed(Point, Blejzer::Auto)[bin]
 p Blejzer(square).size #=> 12
 p Marshal.dump(square).size #=> 46
 ```
+Оптимизированные массивы:
+```ruby
+pry(main)> Blejzer(a = 10_000.times.map { rand(10_000..50_000) }).size
+20005
+pry(main)> Marshal.dump(a).size
+40006
+```
 
 TO-DO:
 - [ ] Добавить возможность описывать рекурсивные структуры данных
@@ -40,6 +47,7 @@ TO-DO:
 - [ ] Рефакторинг и доп. оптимизации(мин.)
   - [x] Оптимизировано поле размера массива
   - [x] Уточнена работа метода members 
+  - [ ] Много копипаста
 - [ ] Написать "how to use"
 - [ ] Разобраться с созданием гема
 - [x] Integer
@@ -49,6 +57,8 @@ TO-DO:
 - [x] Bool 
 - [x] Array
 - [ ] Optimized array
+  - [x] Простой паттерн всех типов
+  - [ ] Преобразование похожих типов в один общий большинства
 - [x] CString
 - [x] Struct
 - [ ] Hash???

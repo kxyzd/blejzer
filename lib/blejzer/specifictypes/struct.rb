@@ -20,6 +20,10 @@ module Blejzer
     def self.load(bin)
       UOArray.load(bin)
     end
+
+    def metatype
+      UOArr
+    end
   end
 end
 

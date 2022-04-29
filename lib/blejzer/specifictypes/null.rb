@@ -16,5 +16,9 @@ module Blejzer
 
       [nil, bin]
     end
+
+    def metatype
+      Null
+    end
   end
 end
