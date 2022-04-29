@@ -36,6 +36,8 @@ p Marshal.dump(square).size #=> 46
 ```ruby
 pry(main)> Blejzer(a = 10_000.times.map { rand(10_000..50_000) }).size
 20005
+pry(main)> Blejzer::UOArray.new(a).dump.size
+30004
 pry(main)> Marshal.dump(a).size
 40006
 ```
