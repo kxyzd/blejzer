@@ -12,7 +12,7 @@ module Blejzer
       def Blejzer(obj)
         case obj
         when String
-          code, bin = header(1)[obj]
+          code, = header(1)[obj]
           T.find_by_code(code)
            .impl
            .load(obj)
