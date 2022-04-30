@@ -56,8 +56,9 @@ module Blejzer
         when TrueClass, FalseClass
           SpecificBool
         else
-          # TODO: Сделать нормальный вывод ошибок!
-          raise "unsupport(#{object.inspect})"
+          raise Blejzer::Error,
+                "Your `#{object}` is required to have the necessary" +
+                'conditions satisfied. Refer to the documentation!'
         end
       end
 
